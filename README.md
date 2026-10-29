@@ -22,3 +22,40 @@ student-records-cli/
 ├── students.json       # Local data storage file
 ├── test_records.py     # Pytest unit tests suite (8+ tests)
 ```
+## Installation & Setup
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone <your-repository-url>
+   cd student-records-cli
+   ```
+
+2. **Create and activate a virtual environment:**
+
+   ```bash
+   python -m venv .venv
+   ```
+   
+3. **Install dependencies:**
+   ```bash
+   pip install pytest
+   ```
+
+## 🎮 How to Run the Application
+
+Run the main CLI script from your terminal:
+
+```bash
+python main.py
+```
+
+Follow the interactive numbered menu (1 to 6) to manage student records smoothly.
+
+## 🧪 Running Unit Tests
+
+To run the test suite and verify the application's functionalities and validation rules, execute:
+
+```bash
+pytest
+```
