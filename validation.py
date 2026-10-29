@@ -7,7 +7,7 @@ class validator:
 
         if not name:
             raise ValueError("name cannot be empty.")
-        if not re.match(r"^[a-z .'-]+$", name):
+        if not re.fullmatch(r"[a-zA-Z .'-]+", name):
             raise ValueError("invalid name.")
         return name
 
