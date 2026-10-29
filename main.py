@@ -1,5 +1,6 @@
+from records import student_managing
 
-from records import (create_student,list_students,get_student,update_student,delete_student)
+manager = student_managing()
 
 menu = """
 student records system
@@ -11,26 +12,22 @@ student records system
 6. quit
 """
 
-
-def theinput(label, required=True):
-    value = input(f"{label}: ").strip()
-
-    if required and not value:
-        raise ValueError(f"{label} is required.")
+def theinput(x):
+    value = input(f"{x}: ").strip()
+    if not value:
+        raise ValueError(f"{x} cannot be empty.")
     return value
-
 
 def add_student():
     name = theinput("name")
     age = theinput("age")
     email = theinput("email")
     grade = theinput("grade")
-    student_id = create_student(name, age, email, grade)
+    student_id = manager.create_student(name, age, email, grade)
     print(f"student created successfully. id: {student_id}")
 
-
 def list_all_students():
-    records = list_students()
+    records = manager.list_students()
 
     if not records:
         print("no student records found.")
@@ -42,26 +39,27 @@ def list_all_students():
             f"name: {record['name']} "
             f"age: {record['age']} "
             f"email: {record['email']} "
-            f"grade: {record['grade']}")
-        
+            f"grade: {record['grade']}"
+        )
+         
 def view_student():
     student_id = theinput("student id")
-    record = get_student(student_id)
+    record = manager.get_student(student_id)
 
     if record is None:
         return
+    
+    print(f"--- student details ---")
     print(f"id: {student_id}")
     print(f"name: {record['name']}")
     print(f"age: {record['age']}")
     print(f"email: {record['email']}")
     print(f"grade: {record['grade']}")
 
-
-
 def edit_student():
     student_id = theinput("student id")
 
-    record = get_student(student_id)
+    record = manager.get_student(student_id)
 
     if record is None:
         return
@@ -71,7 +69,7 @@ def edit_student():
     email = theinput("new email")
     grade = theinput("new grade")
 
-    updated_record = update_student(
+    updated_record = manager.update_student(
         student_id,
         name=name,
         age=age,
@@ -91,10 +89,10 @@ def remove_student():
 
     confirmation = input(
         f"delete student {student_id}? (y/n): "
-    ).strip().lower()
+    )
 
     if confirmation == "y":
-        delete_student(student_id)
+        manager.delete_student(student_id)
     else:
         print("cancelled.")
 
@@ -110,23 +108,22 @@ def main():
 
     while True:
         print(menu)
-
-        choice = input("choose an option: ").strip()
+        choice = input("choose an option: ")
 
         if choice == "6":
             print("goodbye")
             break
 
-        action = actions.get(choice)
-
-        if action is None:
+        if choice not in actions:
             print("invalid choice. please select 1 to 6.")
+            continue
+        
+        actions[choice]()
 
-        try:
-            action()
+        
 
-        except (ValueError, KeyError) as error:
-            print(f"error: {error}")
+
+
 
 
 if __name__ == "__main__":

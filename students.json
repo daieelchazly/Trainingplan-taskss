@@ -1,1 +1,8 @@
-{}
+{
+    "1": {
+        "name": "daie",
+        "age": 23,
+        "email": "daie2@gmail.com",
+        "grade": 99.0
+    }
+}
