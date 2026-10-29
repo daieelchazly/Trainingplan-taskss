@@ -58,3 +58,22 @@ To run execute:
 ```bash
 pytest
 ```
+## Test Coverage
+
+The test suite includes 8 unit tests covering:
+
+student creation: verifies that a student can be created and retrieved with the correct name
+
+missing student retrieval: checks that requesting a non-existent student returns None 
+
+student listing: verifies that student records can be listed
+
+student updating: checks that a student's name can be updated 
+
+student deletion: verifies that a deleted student can no longer be read
+
+empty name validation: checks that an empty name raises a ValueError
+
+invalid age validation: checks that an invalid age raises a ValueError
+
+invalid email validation: checks that an invalid email raises a ValueError
