@@ -58,9 +58,9 @@ To run execute:
 ```bash
 pytest
 ```
-## Test Coverage
+## Test coverage
 
-The test suite includes 8 unit tests covering:
+The test is covering:
 
 student creation: verifies that a student can be created and retrieved with the correct name
 

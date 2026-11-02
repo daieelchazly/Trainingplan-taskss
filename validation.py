@@ -12,9 +12,9 @@ class validator:
         return name
 
     @staticmethod
-    def validate_age(age_str):
+    def validate_age(age):
         try:
-            age = int(age_str)
+            age = int(age)
         except ValueError:
             raise ValueError("age must be a number.")
 
@@ -32,9 +32,9 @@ class validator:
         return email
 
     @staticmethod
-    def validate_grade(grade_str):
+    def validate_grade(grade):
         try:
-            grade = float(grade_str)
+            grade = float(grade)
         except ValueError:
             raise ValueError("grade must be a number.")
 
