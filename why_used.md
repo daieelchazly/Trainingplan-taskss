@@ -1,35 +1,48 @@
-# OOP implementation summary
+# Why used file:
 
-## 1. why did we use separate files?
+## What applied in the code of the OOP:
 
-We split the code into separate files to organize the code and make it easy to reuse and maintain.
+### Inheritance:
+Between parent (`person`) and child (`student`), the student inherit from person class the name and age using `super()`
 
-Files' responsibilities are as follows:
-- `student.py` - file which includes `person` and `student` classes.
-- `validation.py` - file which includes `validator` class and its validation methods.
-- `polymorphism_easy_apply.py` - demonstrates implementation of polymorphism through the usage of different salary calculations.
+### Abstraction:
+Used in person as a base class/template class using abstract method used as template that need to be done in every class that inherits from this class
 
-## 2. what OOP concepts were applied in the code?
+### Encapsulation:
+Did it in the student file in the grade attribute using 2 things: property/setter and double underscore (name mangling) so the access to change the grade value wouldnt be easy
 
-### 1. inheritance
+#### More details about setter / __ in the code:
 
-Implemented between the parent `person` class and child `student` class.
+**Setter:**
 
-Child class uses `super().__init__(name, age)` to inherit attributes `name` and `age` from parent class.
+I used setter to call the validator class (in validation.py file) that checks the grade to be between 0 and 100 even if i created after an object to change the grade number to be an out of bound value then it raises a valueError
 
-This allows the child class to reuse the attributes and methods of the parent class without rewriting them.
+**Property:**
 
-### 2. abstraction
+To get / set the value without the need to call function but call it as attribute
 
-Implemented in `person` class through marking it as an abstract base class with the use of `ABC`.
+`s.get_grade()` ---> `s.grade`
 
-Abstract method `display_info()` was implemented using `@abstractmethod`.
+`s.set_grade(90)` ---> `s.grade(90)`
 
-Abstract method is a template for child classes which requires them to implement this method before creating objects.
+**Double underscore (`self.__grade`):**
 
-### 3. encapsulation
+Name mangling so the name changes internally to be the class name + the attribute name (`.student__grade`) so the access to it became harder
 
-Implemented in `student` class through the use of `grade` attribute in two ways:
+### Polymorphism:
 
-- @property and @grade.setter
-- Double underscore (`__`), also known
+Did it as an sepeareted part in polymorphism_easy_apply.py file where i am using the function of calculate_salary() in class named fulltime(), partttime() but each class it calculates the salary in different way
+
+### Static methods:
+
+Used in validation.py file used to combine all validation operations inside a single Class called validator, and we can use each function directly with the class name without creating a new Object each time
+
+## Final summary:
+
+In this project, i applied the main OOP concepts:
+
+- **Inheritance:** to reuse attributes and methods from the parent class
+- **Abstraction:** to define a template that child classes need to implement
+- **Encapsulation:** to control access to attributes and validate values before changing them
+- **Polymorphism:** to use the same function name with different implementations
+- **Static methods:** to organize validation operations inside a class without needing to create an object
