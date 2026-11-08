@@ -130,4 +130,8 @@ To simulate enterprise database environments, relational SQL queries were run di
 
 goal to see combination between the contract and internet service that a certain customers have and are these who churn
 
-For further sight when training ML algorithm i may need to apply one-hot encoding (week3)
+For further sight when training ML algorithm i may need to apply one-hot encoding (week3)  
+
+src: 
+https://github.com/fawwazmts/outlier-detection-zscore-modifiedzscore/
+https://www.w3schools.com/python/pandas/pandas_analyzing.asp
